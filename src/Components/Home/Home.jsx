@@ -3,11 +3,13 @@ import Header from "../Header/Header";
 import Navbar from "../Navbar/Navbar";
 import LeftSideNav from "../LeftSideNav/LeftSideNav";
 import RightSideNav from "../RightSideNav/RightSideNav";
+import BreakingNews from "./../BreakingNews/BreakingNews";
 
 function Home() {
   return (
     <div>
       <Header></Header>
+      <BreakingNews></BreakingNews>
       <Navbar></Navbar>
       <h2>This is home page</h2>
       <div className="grid grid-cols-4 gap-4">
