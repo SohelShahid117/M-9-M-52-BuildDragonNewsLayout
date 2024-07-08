@@ -14,6 +14,9 @@ const Navbar = () => {
       <li>
         <Link to="/career">Career</Link>
       </li>
+      <li>
+        <Link to="/login">Login</Link>
+      </li>
     </>
   );
   return (
@@ -62,7 +65,7 @@ const Navbar = () => {
             />
           </div>
         </div>
-        <Link className="btn" to="/">
+        <Link className="btn" to="/login">
           Login
         </Link>
       </div>
