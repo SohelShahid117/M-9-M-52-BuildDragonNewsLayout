@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import Navbar from "../Navbar/Navbar";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const Register = () => {
+  const { createUser } = useContext(AuthContext);
   const handleRegister = (e) => {
     e.preventDefault();
     console.log(e);
@@ -13,8 +15,15 @@ const Register = () => {
     const form = new FormData(e.currentTarget);
     console.log(form);
     // console.log(form.get());
-    console.log(form.get("email"));
-    console.log(form.get("password"));
+    const email = form.get("email");
+    const password = form.get("password");
+    // console.log(form.get("email"));
+    // console.log(form.get("password"));
+    console.log(email, password);
+
+    createUser(email, password)
+      .then((result) => console.log(result.user))
+      .catch((err) => console.log(err));
   };
   return (
     <div>
