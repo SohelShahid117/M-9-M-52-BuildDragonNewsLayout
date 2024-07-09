@@ -13,10 +13,12 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
   const createUser = (email, password) => {
+    //for Register component
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
   const signIn = (email, password) => {
+    ////for Login component
     return signInWithEmailAndPassword(auth, email, password);
   };
 
@@ -31,6 +33,7 @@ const AuthProvider = ({ children }) => {
   }, []);
 
   const logOut = () => {
+    ////for handling SignOut method
     return signOut(auth);
   };
 
