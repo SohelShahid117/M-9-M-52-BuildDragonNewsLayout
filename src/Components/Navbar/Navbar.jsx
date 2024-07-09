@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import userdefaultPic from "../../../DRAGON/dragon-news-resources/assets/user.png";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
+  console.log(user);
+  const handleLogOut = () => {
+    logOut().then().catch();
+  };
   const navLinks = (
     <>
       <li>
@@ -65,9 +71,16 @@ const Navbar = () => {
             />
           </div>
         </div>
-        <Link className="btn" to="/login">
-          Login
-        </Link>
+        {user ? (
+          // <Link className="btn" onClick={logOut}>
+          <Link className="btn" onClick={handleLogOut}>
+            SignOut
+          </Link>
+        ) : (
+          <Link className="btn" to="/login">
+            Login
+          </Link>
+        )}
       </div>
     </div>
   );
