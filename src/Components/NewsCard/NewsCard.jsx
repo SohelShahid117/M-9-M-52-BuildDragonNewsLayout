@@ -3,11 +3,12 @@ import { Link } from "react-router-dom";
 
 const NewsCard = ({ news }) => {
   console.log(news);
-  const { title, thumbnail_url, details } = news;
+  const { title, thumbnail_url, details, _id, image_url } = news;
   return (
     <div className="card bg-base-100 w-96 shadow-xl">
       <figure>
-        <img src={thumbnail_url} alt="Shoes" />
+        {/* <img src={thumbnail_url} alt="Shoes" /> */}
+        <img src={image_url} alt="Shoes" />
       </figure>
       <div className="card-body">
         <h2 className="card-title">{title}</h2>
@@ -16,7 +17,7 @@ const NewsCard = ({ news }) => {
         {details.length > 200 ? (
           <p>
             {details.slice(0, 200)}
-            <Link className="btn" to="/login">
+            <Link className="text-blue-600 font-bold" to={`/news/${_id}`}>
               Read More...
             </Link>
           </p>
